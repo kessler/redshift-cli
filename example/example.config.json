@@ -1,0 +1,3 @@
+{
+	"connectionString": "tcp://[user]:[password]@[something].redshift.amazonaws.com:5439/[database_name]"
+}

@@ -1,0 +1,36 @@
+{
+    "name": "redshift-cli",
+    "version": "0.0.1",
+    "description": "command line for querying and managing a redshift cluster",
+    "main": "redshift-cli.js",
+    "bin": {
+        "redshift-cli": "redshift-cli.js"
+    },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/yanush/redshift-cli.git"
+    },
+    "dependencies": {
+        "db-stuff":             "git://github.com/yanush/db-stuff.git",
+        "async":                "*",
+        "simple-file-writer":   "*",
+        "config-chain":         "*",
+        "optimist":             "*",        
+        "log4js":               "*"
+    },
+    "devDependencies": {
+        "nexpect":              "*"
+    },
+    "keywords": [
+        "redshift",
+        "ec2",
+        "amazon",
+        "database",
+        "datastore"
+    ],
+    "author": "Yaniv Kessler",
+    "license": "MIT"
+}
