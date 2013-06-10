@@ -39,7 +39,7 @@ id | name | bar
 
 etc...
 
-##### Simple query:
+###### Simple query:
 ```
 redshift> r.query('select * from foo')
 ```
@@ -53,7 +53,7 @@ will print:
 
 //and so on ...
 ```
-##### Query with projection:
+###### Query with projection:
 ```
 redshift> r.query('select * from foo', { projection: 'bar' });
 ```
@@ -61,7 +61,7 @@ will print:
 ```
 	zzz, eek, rrr
 ```
-##### Stream query results to file (row by row):
+###### Stream query results to file (row by row):
 ```
 redshift> r.query('select * from foo', { filename: 'meow.json' });
 ```
@@ -79,7 +79,7 @@ will write meow.json:
 ```
 1,2,3
 ```
-##### Load query from a file:
+###### Load query from a file:
 ```
 redshift> r.queryFromFile('zzz.sql')
 ```
@@ -89,7 +89,17 @@ Another example:
 ```
 redshift> r.queryFromFile('zzz.sql', { filename: 'result.json', projection: 'name' })
 ```
-##### Unload data from redshift to s3
+###### List active queries:
+```
+redshift> r.activeQueries();
+```
+will print a list of active queries with their pids
+###### cancel an active query:
+```
+redshift> r.cancelQuery(1232);
+```
+will cancel query with pid 1232
+###### Unload data from redshift to s3
 ```
 /*
 	given config.json contains: 
@@ -104,7 +114,7 @@ redshift> r.unloadData('foo')
 will unload to s3://myunloads/meow/foo/[date string in iso format gmt 0 timezone]/0001_part... etc etc... 
 using Temporary Security Credentials generate from sts using getSessionToken()
 
-##### Autorun
+###### Autorun
 ```
 /*
 	start.js:
