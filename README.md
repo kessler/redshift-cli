@@ -104,6 +104,27 @@ redshift> r.unloadData('foo')
 will unload to s3://myunloads/meow/foo/[date string in iso format gmt 0 timezone]/0001_part... etc etc... 
 using Temporary Security Credentials generate from sts using getSessionToken()
 
+##### Autorun
+```
+/*
+	start.js:
+
+	r.query('select * from foo');
+	console.log('bye');
+*/
+
+/*
+	config.json: 
+	{
+		autorun: 'start.js'
+	}
+*/
+
+node redshift-cli.js --configPath=....
+```
+
+Willl start the cli execute start.js in the context of the CLI
+
 
 ### optional config (add to above hashes)
 {
