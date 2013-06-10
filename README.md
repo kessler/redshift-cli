@@ -114,6 +114,8 @@ redshift> r.unloadData('foo')
 will unload to s3://myunloads/meow/foo/[date string in iso format gmt 0 timezone]/0001_part... etc etc... 
 using Temporary Security Credentials generate from sts using getSessionToken()
 
+it will also create a data.sql in the same location containing the sql used to select the data for unloading
+
 ###### Autorun
 ```
 /*
