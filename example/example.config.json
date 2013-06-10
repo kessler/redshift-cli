@@ -1,3 +1,9 @@
 {
-	"connectionString": "tcp://[user]:[password]@[something].redshift.amazonaws.com:5439/[database_name]"
+	"connectionString": "tcp://[user]:[password]@[something].redshift.amazonaws.com:5439/",
+	"database": "[database_name]",
+	"accessKeyId": "[access key id]", 
+	"secretAccessKey": "[secret]",	
+	"region": "[amazon region]",
+	"defaultS3BucketName": "[some bucket used for load and unload operations - this can be specified later]"
+	"sslEnabled": true
 }

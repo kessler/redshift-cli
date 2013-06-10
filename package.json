@@ -7,7 +7,7 @@
         "redshift-cli": "redshift-cli.js"
     },
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "mocha"
     },
     "repository": {
         "type": "git",
@@ -19,7 +19,8 @@
         "simple-file-writer":   "*",
         "config-chain":         "*",
         "optimist":             "*",        
-        "log4js":               "*"
+        "log4js":               "*",
+        "aws-sdk":              "*"
     },
     "devDependencies": {
         "nexpect":              "*"
