@@ -27,7 +27,7 @@ all config options are overridable from environment or from a command line argum
 ```
 ### How to do stuff:
 Lets say we have table Foo in database meow:
-
+```
 id | name | bar
 ---+------+-----
 1  | moo  | zzz
@@ -35,6 +35,7 @@ id | name | bar
 2  | oom  | eek
 ---+------+-----
 3  | dog  | rrr
+```
 
 etc...
 
