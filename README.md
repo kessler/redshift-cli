@@ -6,7 +6,9 @@ redshift command line interface
 	node redshift-cli.js --configPath=[some.config.json]
 ```
 all config options are overridable from environment or from a command line argument with the same name
+
 -------------
+
 ### required config for minimal database access
 ```
 {
@@ -14,7 +16,9 @@ all config options are overridable from environment or from a command line argum
 	"database": "[name of the database]"
 }
 ```
+
 -------------
+
 ### required config for unload and load functionality
 ```
 {
@@ -27,7 +31,9 @@ all config options are overridable from environment or from a command line argum
 	"sslEnabled": true	
 }
 ```
+
 -------------
+
 ### How to do stuff:
 Lets say we have table Foo in database meow:
 ```
@@ -40,7 +46,9 @@ id | name | bar
 3  | dog  | rrr
 ```
 etc...
+
 -------------
+
 ###### Simple query:
 ```
 redshift> r.query('select * from foo')
@@ -55,7 +63,9 @@ will print:
 
 //and so on ...
 ```
+
 -------------
+
 ###### Query with projection:
 ```
 redshift> r.query('select * from foo', { projection: 'bar' });
@@ -64,7 +74,9 @@ will print:
 ```
 	zzz, eek, rrr
 ```
+
 -------------
+
 ###### Stream query results to file (row by row):
 ```
 redshift> r.query('select * from foo', { filename: 'meow.json' });
@@ -83,7 +95,9 @@ will write meow.json:
 ```
 1,2,3
 ```
+
 -------------
+
 ###### Load query from a file:
 ```
 redshift> r.queryFromFile('zzz.sql')
@@ -94,19 +108,25 @@ Another example:
 ```
 redshift> r.queryFromFile('zzz.sql', { filename: 'result.json', projection: 'name' })
 ```
+
 -------------
+
 ###### List active queries:
 ```
 redshift> r.activeQueries();
 ```
 will print a list of active queries with their pids
+
 -------------
+
 ###### cancel an active query:
 ```
 redshift> r.cancelQuery(1232);
 ```
 will cancel query with pid 1232
+
 -------------
+
 ###### Unload data from redshift to s3
 ```
 /*
@@ -126,7 +146,9 @@ it will also create a data.sql in the same location containing the sql used to s
 ```
 redshift> r.unloadData('foo', 'select * from foo join pie on foo.id=pie.id')
 ```
+
 -------------
+
 ###### Autorun
 ```
 /*
@@ -147,7 +169,9 @@ node redshift-cli.js --configPath=....
 ```
 
 Will start the cli execute start.js in the context of the CLI
+
 -------------
+
 ###### optional config (add to above hashes)
 {
 	"overrideS3SecurityCredentials": {
@@ -155,5 +179,7 @@ Will start the cli execute start.js in the context of the CLI
 		"SecretAccessKey": "[]"
 	}
 }
+
 -------------
+
 *TODO: add to npm (need to add db-stuff too)*
