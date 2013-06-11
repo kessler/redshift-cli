@@ -49,7 +49,7 @@ etc...
 
 -------------
 
-###### Simple query:
+##### Simple query:
 ```
 redshift> r.query('select * from foo')
 ```
@@ -66,7 +66,7 @@ will print:
 
 -------------
 
-###### Query with projection:
+##### Query with projection:
 ```
 redshift> r.query('select * from foo', { projection: 'bar' });
 ```
@@ -77,7 +77,7 @@ will print:
 
 -------------
 
-###### Stream query results to file (row by row):
+##### Stream query results to file (row by row):
 ```
 redshift> r.query('select * from foo', { filename: 'meow.json' });
 ```
@@ -98,7 +98,7 @@ will write meow.json:
 
 -------------
 
-###### Load query from a file:
+##### Load query from a file:
 ```
 redshift> r.queryFromFile('zzz.sql')
 ```
@@ -111,7 +111,7 @@ redshift> r.queryFromFile('zzz.sql', { filename: 'result.json', projection: 'nam
 
 -------------
 
-###### List active queries:
+##### List active queries:
 ```
 redshift> r.activeQueries();
 ```
@@ -119,7 +119,7 @@ will print a list of active queries with their pids
 
 -------------
 
-###### cancel an active query:
+##### cancel an active query:
 ```
 redshift> r.cancelQuery(1232);
 ```
@@ -127,7 +127,7 @@ will cancel query with pid 1232
 
 -------------
 
-###### Unload data from redshift to s3
+##### Unload data from redshift to s3
 ```
 /*
 	given config.json contains: 
@@ -149,7 +149,7 @@ redshift> r.unloadData('foo', 'select * from foo join pie on foo.id=pie.id')
 
 -------------
 
-###### Autorun
+##### Autorun
 ```
 /*
 	start.js:
@@ -172,7 +172,7 @@ Will start the cli execute start.js in the context of the CLI
 
 -------------
 
-###### optional config (add to above hashes)
+##### optional config (add to above hashes)
 {
 	"overrideS3SecurityCredentials": {
 		"AccessKeyId": "[]",
