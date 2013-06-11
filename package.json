@@ -20,7 +20,9 @@
         "config-chain":         "*",
         "optimist":             "*",        
         "log4js":               "*",
-        "aws-sdk":              "*"
+        "aws-sdk":              "*",
+        "lodash":               "*",
+        "eyes":                 "*"
     },
     "devDependencies": {
         "nexpect":              "*"

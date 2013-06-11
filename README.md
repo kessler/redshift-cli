@@ -148,6 +148,48 @@ redshift> r.unloadData('foo', 'select * from foo join pie on foo.id=pie.id')
 ```
 
 -------------
+##### search for previous unloads
+```
+redshift> r.searchUnloads(inspectCallback)
+```
+will output:
+```
+redshift> 
+    {
+        meow: {
+            foo: {
+                2013-06-11T06:21:01.135Z: [
+                    '0000_part_00',
+                    '0001_part_00',
+                    '0002_part_00',
+                    '0003_part_00',
+                    '0004_part_00',
+                    '0005_part_00',
+                    '0006_part_00',
+                    '0007_part_00'
+                ],
+                2013-06-11T06:20:53.936Z: [
+                    '0000_part_00',
+                    '0001_part_00',
+                    '0002_part_00',
+                    '0003_part_00',
+                    '0004_part_00',
+                    '0005_part_00',
+                    '0006_part_00',
+                    '0007_part_00'
+                ]
+            }
+        }
+    }
+```
+
+-------------
+
+##### load back to redshift
+```
+redshift> r.loadData()
+```
+***********
 
 ##### Autorun
 ```
