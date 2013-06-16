@@ -189,7 +189,7 @@ redshift>
 ```
 redshift> r.loadData()
 ```
-***********
+-------------
 
 ##### Autorun
 ```
@@ -207,13 +207,18 @@ redshift> r.loadData()
 	}
 */
 
-node redshift-cli.js --configPath=....
+node redshift-cli.js --config=....
 ```
 
 Will start the cli execute start.js in the context of the CLI
 
 -------------
-
+##### Quick query
+```
+	node redshift-cli --query="select * from lala_land"
+```
+will execute this query and exit the process afterwards, exit code will indicate the successfulness of the query
+-------------
 ##### optional config (add to above hashes)
 {
 	"overrideS3SecurityCredentials": {

@@ -30,13 +30,31 @@ var replServer = repl.start({
 	prompt: "redshift> "  
 });
 
+var context = replServer.context;
+
 logger.info('please wait...');
 
-services.init(config, replServer.context, function(err, results) {
+services.init(config, context, function(err, results) {
 	logger.info('ready\n\r');
+
+	//require('fs').writeFileSync('zzz', $u.inspect(context))
 
 	if (config.autorun) {
 		replServer.commands['.load'].action.call(replServer, config.autorun);		
+	}
+
+	if (config.query) {		
+		context.r.datastore.query(config.query, exitAfter);		
+	}
+
+	function exitAfter(err, results) {
+		if (err) {
+			logger.error(err);
+			process.exit(1);
+		} else {
+			logger.info(results);
+			process.exit(0);
+		}
 	}
 });
 
