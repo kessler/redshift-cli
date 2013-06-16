@@ -5,23 +5,23 @@ var config = require('./lib/config');
 var services = require('./lib/services');
 var $u = require('util');
 
-if (config.store.connectionString === undefined) {
+if (config.connectionString === undefined) {
 	throw new Error('a connection string must be specified in config or in command line parameters');
 	process.exit(1);
 }
 
-if (config.store.database === undefined) {
+if (config.database === undefined) {
 	throw new Error('a database must be specified in config or in command line parameters');
 	process.exit(1);
 }
 
-if (config.store.log4js) {
+if (config.log4js) {
 	// very very shakey.....
-	var pattern = config.store.log4js.appenders[0].appender.layout.pattern;
+	var pattern = config.log4js.appenders[0].appender.layout.pattern;
 
-	config.store.log4js.appenders[0].appender.layout.pattern = pattern.replace(/_dbname_/, config.store.database);
+	config.log4js.appenders[0].appender.layout.pattern = pattern.replace(/_dbname_/, config.database);
 	
-	log4js.configure(config.store.log4js);
+	log4js.configure(config.log4js);
 }
 
 var logger = log4js.getLogger('redshift');
@@ -32,11 +32,11 @@ var replServer = repl.start({
 
 logger.info('please wait...');
 
-services.init(config.store, replServer.context, function(err, results) {
+services.init(config, replServer.context, function(err, results) {
 	logger.info('ready\n\r');
 
-	if (config.store.autorun) {
-		replServer.commands['.load'].action.call(replServer, config.store.autorun);		
+	if (config.autorun) {
+		replServer.commands['.load'].action.call(replServer, config.autorun);		
 	}
 });
 

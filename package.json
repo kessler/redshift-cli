@@ -1,39 +1,39 @@
 {
-    "name": "redshift-cli",
-    "version": "0.0.3",
-    "description": "command line for querying and managing a redshift cluster",
-    "main": "index.js",
-    "bin": {
-        "redshift-cli": "redshift-cli.js"
-    },
-    "scripts": {
-        "test": "mocha"
-    },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/yanush/redshift-cli.git"
-    },
-    "dependencies": {
-        "db-stuff":             "git://github.com/yanush/db-stuff.git",
-        "async":                "*",
-        "simple-file-writer":   "*",
-        "config-chain":         "*",
-        "optimist":             "*",        
-        "log4js":               "*",
-        "aws-sdk":              "*",
-        "lodash":               "*",
-        "eyes":                 "*"
-    },
-    "devDependencies": {
-        "nexpect":              "*"
-    },
-    "keywords": [
-        "redshift",
-        "ec2",
-        "amazon",
-        "database",
-        "datastore"
-    ],
-    "author": "Yaniv Kessler",
-    "license": "MIT"
+  "name": "redshift-cli",
+  "version": "0.0.3",
+  "description": "command line for querying and managing a redshift cluster",
+  "main": "index.js",
+  "bin": {
+    "redshift-cli": "redshift-cli.js"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yanush/redshift-cli.git"
+  },
+  "dependencies": {
+    "db-stuff": "yanush/db-stuff",
+    "async": "*",
+    "simple-file-writer": "*",
+    "optimist": "*",
+    "log4js": "*",
+    "aws-sdk": "*",
+    "lodash": "*",
+    "eyes": "*",
+    "rc": "~0.3.0"
+  },
+  "devDependencies": {
+    "nexpect": "*"
+  },
+  "keywords": [
+    "redshift",
+    "ec2",
+    "amazon",
+    "database",
+    "datastore"
+  ],
+  "author": "Yaniv Kessler",
+  "license": "MIT"
 }
