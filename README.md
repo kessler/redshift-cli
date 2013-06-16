@@ -3,7 +3,7 @@ redshift command line interface
 
 ###start the command line
 ```
-	node redshift-cli.js --configPath=[some.config.json]
+	node redshift-cli.js --config=[some.config.json]
 ```
 all config options are overridable from environment or from a command line argument with the same name
 
@@ -139,12 +139,12 @@ will cancel query with pid 1232
 
 redshift> r.unloadData('foo')
 ```
-will unload to s3://myunloads/meow/foo/[date string in iso format gmt 0 timezone]/0001_part... etc etc... 
+will unload to s3://myunloads/meow/foo/[date string in iso format gmt 0 timezone]/data/0001_part... etc etc... 
 using Temporary Security Credentials generate from sts using getSessionToken()
 
 it will also create a data.sql in the same location containing the sql used to select the data for unloading
 ```
-redshift> r.unloadData('foo', 'select * from foo join pie on foo.id=pie.id')
+redshift> r.unloadData('foo', 'select * from foo where id=1')
 ```
 
 -------------
