@@ -11,10 +11,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/yanush/redshift-cli.git"
+    "url": "https://github.com/kessler-y/redshift-cli.git"
   },
   "dependencies": {
-    "db-stuff": "yanush/db-stuff",
+    "db-stuff": "kessler-y/db-stuff",
     "async": "*",
     "simple-file-writer": "*",
     "optimist": "*",
