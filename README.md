@@ -261,3 +261,8 @@ use gzip or replace default delimiter
 
 }
 ```
+
+#####TODO
+-Add data verification for load operations - probably using data saved during unload (select count(*) and such)
+-Add auto table generation - need something like pg_dump
+
