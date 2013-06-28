@@ -118,12 +118,14 @@ will write meow.json:
 ```
 redshift> r.queryFromFile('zzz.sql')
 ```
-will print ... etc...
+will use content of zzz.sql as query and print the result
 
 Another example:
 ```
 redshift> r.queryFromFile('zzz.sql', { filename: 'result.json', projection: 'name' })
 ```
+
+will use content of zzz.sql as query and save the result to 'result.json'
 
 -------------
 
