@@ -206,6 +206,7 @@ redshift>
 redshift> r.loadData('foo', 'meow/foo/2013-06-11T06:21:01.135Z')
 ```
 will load back data into foo.
+
 -------------
 
 ##### Autorun
