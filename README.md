@@ -1,9 +1,24 @@
 redshift command line interface
 ===============================
 
+Useful for doing manual stuff on redshift and as a tool for cron jobs and such
+
+###Install
+```
+	npm install -g redshift-cli
+```
+
 ###start the command line
 ```
-	node redshift-cli.js --config=[some.config.json]
+	redshift-cli --config=[some.config.json]
+
+	//or (see quick query below)
+
+	redshift-cli --config=[some.config.json] --query="select * from lala_land"
+
+	//or (see auto run below)
+
+	redshift-cli --config=[some.config.json] --autorun=/home/me/start.js
 ```
 all config options are overridable from environment or from a command line argument with the same name
 
@@ -31,6 +46,7 @@ all config options are overridable from environment or from a command line argum
 	"sslEnabled": true	
 }
 ```
+more on [config](#optional-config-keys)
 
 -------------
 
@@ -142,11 +158,11 @@ redshift> r.unloadData('foo')
 will unload to s3://myunloads/meow/foo/[date string in iso format gmt 0 timezone]/data/0001_part... etc etc... 
 using Temporary Security Credentials generate from sts using getSessionToken()
 
-it will also create a data.sql in the same location containing the sql used to select the data for unloading
+it will also create s3://myunloads/meow/foo/[date string in iso format gmt 0 timezone]/data.sql containing the sql used to select the data for unloading
 ```
-redshift> r.unloadData('foo', 'select * from foo where id=1')
+redshift> r.unloadData('foo', 'select * from foo order by id', true, ',')
 ```
-
+order by id when unloading, enable gzip and use ',' as delimiter
 -------------
 ##### search for previous unloads
 ```
@@ -187,8 +203,9 @@ redshift>
 
 ##### load back to redshift
 ```
-redshift> r.loadData()
+redshift> r.loadData('foo', 'meow/foo/2013-06-11T06:21:01.135Z')
 ```
+will load back data into foo.
 -------------
 
 ##### Autorun
@@ -207,7 +224,7 @@ redshift> r.loadData()
 	}
 */
 
-node redshift-cli.js --config=....
+redshift-cli --config=....
 ```
 
 Will start the cli execute start.js in the context of the CLI
@@ -216,20 +233,27 @@ Will start the cli execute start.js in the context of the CLI
 
 ##### Quick query
 ```
-	node redshift-cli --query="select * from lala_land"
+	redshift-cli --query="select * from lala_land"
 ```
 will execute this query and exit the process afterwards, exit code will indicate the successfulness of the query
 
 -------------
 
-##### optional config (add to above hashes)
+##### optional config keys
+use fixed credentials for unload/load operations (instead of temporary ones)
+```
 {
 	"overrideS3SecurityCredentials": {
 		"AccessKeyId": "[]",
 		"SecretAccessKey": "[]"
 	}
 }
+```
+use gzip or replace default delimiter
+```
+{
+	"delimiter": ",",
+	"gzip": true
 
--------------
-
-*TODO: add to npm (need to add db-stuff too)*
+}
+```
