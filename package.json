@@ -14,7 +14,7 @@
     "url": "https://github.com/kessler-y/redshift-cli.git"
   },
   "dependencies": {
-    "db-stuff": "kessler-y/db-stuff",
+    "db-stuff": "*",
     "async": "*",
     "simple-file-writer": "*",
     "optimist": "*",
