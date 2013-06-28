@@ -5,5 +5,7 @@
 	"secretAccessKey": "[secret]",	
 	"region": "[amazon region]",
 	"defaultS3BucketName": "[some bucket used for load and unload operations - this can be specified later]"
-	"sslEnabled": true
+	"sslEnabled": true,
+	"gzip": true,
+	"delimiter": "|"
 }
