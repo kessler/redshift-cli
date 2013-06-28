@@ -65,4 +65,3 @@ services.init(config, context, function(err, results) {
 		}
 	}
 });
-
