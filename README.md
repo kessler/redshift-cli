@@ -163,6 +163,7 @@ it will also create s3://myunloads/meow/foo/[date string in iso format gmt 0 tim
 redshift> r.unloadData('foo', 'select * from foo order by id', true, ',')
 ```
 order by id when unloading, enable gzip and use ',' as delimiter
+
 -------------
 ##### search for previous unloads
 ```
