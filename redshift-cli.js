@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 var repl = require('repl');
 var log4js = require('log4js');
 var argv = require('optimist').argv;
