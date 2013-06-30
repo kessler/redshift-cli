@@ -24,6 +24,42 @@ all config options are overridable from environment or from a command line argum
 
 -------------
 
+##### Autorun
+```
+/*
+	start.js:
+
+	r.query('select * from foo');
+	console.log('bye');
+*/
+
+/*
+	config.json: 
+	{
+		autorun: 'start.js'
+	}
+*/
+
+redshift-cli --config=....
+
+// or
+
+redshift-cli --config=[some.config.json] --autorun=/home/me/start.js
+
+```
+
+Will start the cli execute start.js in the context of the CLI
+
+-------------
+
+##### Quick query
+```
+	redshift-cli --query="select * from lala_land"
+```
+will execute this query and exit the process afterwards, exit code will indicate the successfulness of the query
+
+-------------
+
 ### required config for minimal database access
 ```
 {
@@ -46,7 +82,9 @@ all config options are overridable from environment or from a command line argum
 	"sslEnabled": true	
 }
 ```
-more on [config](#optional-config-keys)
+more on [optional config key](#optional-config-keys)
+
+redshift-cli config is implemented using the awesome [rc lib](https://github.com/dominictarr/rc)
 
 -------------
 
@@ -110,6 +148,21 @@ redshift> r.query('select * from foo', { filename: 'meow.json', projection: 'id'
 will write meow.json:
 ```
 1,2,3
+```
+
+-------------
+
+##### describe tables
+```
+redshift> r.describe();
+
+//or
+
+redshift> r.describe('dbname');
+
+//
+
+redshift> r.describe(function(err, results) { // do something with it });
 ```
 
 -------------
@@ -212,37 +265,6 @@ will load back data into foo.
 
 -------------
 
-##### Autorun
-```
-/*
-	start.js:
-
-	r.query('select * from foo');
-	console.log('bye');
-*/
-
-/*
-	config.json: 
-	{
-		autorun: 'start.js'
-	}
-*/
-
-redshift-cli --config=....
-```
-
-Will start the cli execute start.js in the context of the CLI
-
--------------
-
-##### Quick query
-```
-	redshift-cli --query="select * from lala_land"
-```
-will execute this query and exit the process afterwards, exit code will indicate the successfulness of the query
-
--------------
-
 ##### optional config keys
 use fixed credentials for unload/load operations (instead of temporary ones)
 ```
@@ -265,4 +287,4 @@ use gzip or replace default delimiter
 #####TODO
 -Add data verification for load operations - probably using data saved during unload (select count(*) and such)
 -Add auto table generation - need something like pg_dump
-
+-Auto 'select starttime, filename, err_reason from stl_load_errors order by starttime desc limit 100' with filename like '' when load fails
