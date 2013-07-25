@@ -35,6 +35,12 @@ var context = replServer.context;
 logger.info('please wait...');
 
 services.init(config, context, function(err, results) {
+	if (err) {
+		logger.error(err);
+		process.exit(1);
+		return;
+	}
+
 	logger.info('ready\n\r');
 
 	//require('fs').writeFileSync('zzz', $u.inspect(context))
