@@ -167,6 +167,15 @@ redshift> r.describe(function(err, results) { // do something with it });
 
 -------------
 
+##### show create DDL script for tables
+```
+
+redshift> r.showCreate('schema.tablename');
+
+```
+
+-------------
+
 ##### Load query from a file:
 ```
 redshift> r.queryFromFile('zzz.sql')
