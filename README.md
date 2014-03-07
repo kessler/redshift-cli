@@ -8,7 +8,7 @@ Useful for doing manual stuff on redshift and as a tool for cron jobs and such
 	npm install -g redshift-cli
 ```
 
-###start the command line
+### start the CLI
 ```
 	redshift-cli --config=[some.config.json]
 
@@ -20,8 +20,6 @@ Useful for doing manual stuff on redshift and as a tool for cron jobs and such
 
 	redshift-cli --config=[some.config.json] --autorun=/home/me/start.js
 ```
-all config options are overridable from environment or from a command line argument with the same name
-
 -------------
 
 ##### Autorun
@@ -48,7 +46,7 @@ redshift-cli --config=[some.config.json] --autorun=/home/me/start.js
 
 ```
 
-Will start the cli execute start.js in the context of the CLI
+Will start the cli and execute start.js in the context of the CLI
 
 -------------
 
@@ -82,9 +80,9 @@ will execute this query and exit the process afterwards, exit code will indicate
 	"sslEnabled": true	
 }
 ```
-more on [optional config key](#optional-config-keys)
+more on [optional config keys](#optional-config-keys)
 
-redshift-cli config is implemented using the awesome [rc lib](https://github.com/dominictarr/rc)
+redshift-cli config is using the awesome [rc lib](https://github.com/dominictarr/rc)
 
 -------------
 
