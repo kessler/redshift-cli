@@ -1,5 +1,7 @@
-redshift command line interface
-===============================
+# undergoing a huge revamp. stay tuned 
+
+### redshift command line interface
+
 
 Useful for doing manual stuff on redshift and as a tool for cron jobs and such
 
