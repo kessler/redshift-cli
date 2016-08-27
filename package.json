@@ -14,15 +14,16 @@
     "url": "https://github.com/kessler-y/redshift-cli.git"
   },
   "dependencies": {
-    "db-stuff": "*",
     "async": "*",
-    "simple-file-writer": "*",
-    "optimist": "*",
-    "log4js": "*",
     "aws-sdk": "*",
-    "lodash": "*",
+    "db-stuff": "^5.2.2",
     "eyes": "*",
-    "rc": "~0.3.0"
+    "lodash": "*",
+    "log4js": "*",
+    "optimist": "*",
+    "pg": "^6.1.0",
+    "rc": "~0.3.0",
+    "simple-file-writer": "*"
   },
   "devDependencies": {
     "nexpect": "*"
