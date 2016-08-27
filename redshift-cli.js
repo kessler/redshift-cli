@@ -48,7 +48,7 @@ services.init(config, context, function(err, results) {
 	//require('fs').writeFileSync('zzz', $u.inspect(context))
 
 	if (config.autorun) {
-		replServer.commands['.load'].action.call(replServer, config.autorun);		
+		replServer.commands['load'].action.call(replServer, config.autorun);
 	}
 
 	if (config.query) {		
