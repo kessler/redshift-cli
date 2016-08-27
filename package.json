@@ -1,6 +1,6 @@
 {
   "name": "redshift-cli",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "command line for querying and managing a redshift cluster",
   "main": "index.js",
   "bin": {
