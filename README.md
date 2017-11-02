@@ -1,11 +1,11 @@
-# undergoing a huge revamp. stay tuned 
+# Completely abandoned project...
 
 ### redshift command line interface
 
 
 Useful for doing manual stuff on redshift and as a tool for cron jobs and such
 
-###Install
+### Install
 ```
 	npm install -g redshift-cli
 ```
